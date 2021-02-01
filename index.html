@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Questions Links</title>
+</head>
+<body>
+<div id="sol">
+
+</div>
+<form>
+    <label for="1">Q1</label>
+    <input id="1" type="text"><br/><br/>
+    <label for="2">Q2</label>
+    <input id="2" type="text"><br/><br/>
+    <label for="3">Q3</label>
+    <input id="3" type="text"><br/><br/>
+    <label for="4">Q4</label>
+    <input id="4" type="text"><br/><br/>
+    <label for="5">Q5</label>
+    <input id="5" type="text"><br/><br/>
+    <label for="6">Q6</label>
+    <input id="6" type="text"><br/><br/>
+    <button type="button" onclick="addedQ()">Submit Questions</button>
+    <a href="index.html" download>Download HTML</a>
+</form>
+
+
+<script>
+    function addedQ() {
+        console.log("added Q called");
+        let q=[];
+        for (let i=1; i<=6; i++) {
+            q.push(document.getElementById(i.toString()).value);
+        }
+        changeIndex(q);
+    }
+
+    function changeIndex(q) {
+        let s="";
+        for (let i of q) {
+            let url = "https://www.google.com/search?q=" + i;
+            s += `<a href='https://www.google.com/search?q=${i}' style="text-decoration: none; color: black" target="_blank">${i}</a><br><br></a>`;
+        }
+        let div = document.getElementById('sol');
+        div.innerHTML = s;
+    }
+</script>
+
+</body>
+</html>
